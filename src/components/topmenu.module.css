@@ -1,0 +1,31 @@
+.menucontainer {
+    height: 60px;
+    background-color: aliceblue;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.logoimg {
+    height: 100%;
+    width: auto;
+    padding: 5px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+.itemcontainer {
+    width: 100px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 16px;
+    color: gray;
+}
