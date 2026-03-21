@@ -23,17 +23,18 @@ export default async function VenueDetailPage({params} : {params: Promise<{ vid:
             <div className="flex flex-row my-5 mx-5">
                 <Image src={venueDetail.data.picture} 
                 alt = 'Venue Image' width={0} height={0} sizes="100vw"
-                className="rounded-lg w-[30%]"/>
-                <div className="text-left leading-loose text-md mx-10" >
+                className="rounded-lg w-auto h-[75vh]"/>
+                <div className="text-left leading-[2] text-xl mx-10" >
                     <div>Name: {venueDetail.data.name}</div>
                     <div>Address: {venueDetail.data.address}</div>
                     <div>District: {venueDetail.data.district}</div>
                     <div>Province: {venueDetail.data.province}</div>
                     <div>Postal Code: {venueDetail.data.postalcode}</div>
+                    <div>Region: {venueDetail.data.region}</div>
                     <div>Tel: {venueDetail.data.tel}</div>
                     <div>Daily Rate: {venueDetail.data.dailyrate}</div>
                     
-                    <Link href={`/booking?id=${(await params).vid}&name=${venueDetail.data.name}`}>
+                    <Link href={`/booking?id=${(await params).vid}`}>
                         <button className="block rounded-md bg-sky-600 hover:bg-sky-300 px-3 py-2 shadow-sm text-white" name="Book Venue">
                             Make Booking
                         </button>

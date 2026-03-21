@@ -1,7 +1,7 @@
 "use client"
 
 import { AppDispatch, useAppSelector } from "@/redux/store";
-import { useDispatch, UseDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { removeBooking } from "@/redux/features/bookSlice";
 
 export default function BookingList() {
