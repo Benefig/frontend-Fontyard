@@ -3,16 +3,16 @@
 import {useReducer, useRef, useEffect, useState} from "react";
 import Card from "@/components/Card";
 import Link from "next/link";
-import getVenues from "@/libs/getVenues";
+import getHotels from "@/libs/getHotels";
 
 export default function CardPanel() {
 
-    const [venueResponse, setVenueResponse] = useState<VenueJson | null>(null);
+    const [hotelResponse, setHotelResponse] = useState<HotelJson | null>(null);
 
     useEffect (() => {
         const fetchData = async () => {
-            const venues = await getVenues();
-            setVenueResponse(venues);
+            const hotels = await getHotels();
+            setHotelResponse(hotels);
         }
         fetchData();
     }, []);
@@ -22,16 +22,16 @@ export default function CardPanel() {
     const inputRef = useRef<HTMLInputElement>(null);
     */
 
-    const compareReducer = (compareList:Map<string, number>, action:{type:string, venueName:string, rating:number}) => {
+    const compareReducer = (compareList:Map<string, number>, action:{type:string, hotelName:string, rating:number}) => {
         switch(action.type) {
             case 'add': {
                 const newMap = new Map(compareList);
-                newMap.set(action.venueName, action.rating);
+                newMap.set(action.hotelName, action.rating);
                 return newMap;
             }
             case 'remove': {
                 const newMap = new Map(compareList);
-                newMap.delete(action.venueName);
+                newMap.delete(action.hotelName);
                 return newMap;
             }
             default: return compareList;
@@ -52,39 +52,39 @@ export default function CardPanel() {
 
     /*Mock Data*/
     /*
-    const mockVenueRepo = [
-        {vid: "001", name: "The Bloom Pavilion", image: "/img/housegreen conservatory.jpg", desc: "Conserve your feelings and sprinkle them through the air as we blend and rejoice in this sparkling sphere."},
-        {vid: "002", name: "Spark Space", image: "/img/passnight club.jpg", desc: "As the nights pass, this sun shines over us equally, like twin stars twinkling through dawn and dusk."},
-        {vid: "003", name: "The Grand Table", image: "/img/holy pavilion.jpg", desc: "Praying without action, crying without tears. For those who have left must keep pushing forward with their calm mind."},
-        {vid: "004", name: "Sand Garden", image: "/img/sand garden.jpg", desc: "A cozy outdoor pavilion where the harshness of the dunes reveals the beauty of every droplet poured into your heart."},
-        {vid: "005", name: "Boatyard Stare", image: "/img/boatyard stare.jpg", desc: "Sail with the waves hoy-hoy, dance upon the wind wee-wee, for all of it lies within our reach-yard stare."}
+    const mockHotelRepo = [
+        {hid: "001", name: "The Bloom Pavilion", image: "/img/housegreen conservatory.jpg", desc: "Conserve your feelings and sprinkle them through the air as we blend and rejoice in this sparkling sphere."},
+        {hid: "002", name: "Spark Space", image: "/img/passnight club.jpg", desc: "As the nights pass, this sun shines over us equally, like twin stars twinkling through dawn and dusk."},
+        {hid: "003", name: "The Grand Table", image: "/img/holy pavilion.jpg", desc: "Praying without action, crying without tears. For those who have left must keep pushing forward with their calm mind."},
+        {hid: "004", name: "Sand Garden", image: "/img/sand garden.jpg", desc: "A cozy outdoor pavilion where the harshness of the dunes reveals the beauty of every droplet poured into your heart."},
+        {hid: "005", name: "Boatyard Stare", image: "/img/boatyard stare.jpg", desc: "Sail with the waves hoy-hoy, dance upon the wind wee-wee, for all of it lies within our reach-yard stare."}
     ]
     */
 
-    if(!venueResponse) return(<p className="text-center">Card Panel is Loading ...</p>)
+    if(!hotelResponse) return(<p className="text-center">Card Panel is Loading ...</p>)
 
     return(
         <div>
             <div className="m-5 flex flex-row gap-6 justify-around">
                 {
-                    venueResponse.data.map((venueItem:VenueItem) => (
-                        <Link href={`/venue/${venueItem.id}`} key={venueItem.id} className="w-1/5">
-                            <Card venueName={venueItem.name} imgSrc={venueItem.picture}
-                            onCompare={(venue:string, rating:number) => dispatchCompare({type:'add', venueName:venue, rating:rating})}/>
+                    hotelResponse.data.map((hotelItem:HotelItem) => (
+                        <Link href={`/hotel/${hotelItem.id}`} key={hotelItem.id} className="w-1/5">
+                            <Card hotelName={hotelItem.name} imgSrc={hotelItem.picture}
+                            onCompare={(hotel:string, rating:number) => dispatchCompare({type:'add', hotelName:hotel, rating:rating})}/>
                         </Link>
                     ))
                 }
             </div>
-            <div className="w-full text-xl font-semibold pl-10 pb-2">Venue List with Ratings: {compareList.size}</div>
-            {Array.from(compareList.entries()).map(([venue, rating]) => (<div key={venue} data-testid={venue}
+            <div className="w-full text-xl font-semibold pl-10 pb-2">Hotel List with Ratings: {compareList.size}</div>
+            {Array.from(compareList.entries()).map(([hotel, rating]) => (<div key={hotel} data-testid={hotel}
             className="pl-10"
-            onClick={() => dispatchCompare({ type: "remove", venueName: venue, rating: rating })}>
-                {venue} : {rating}
+            onClick={() => dispatchCompare({ type: "remove", hotelName: hotel, rating: rating })}>
+                {hotel} : {rating}
             </div>
             ))}
             
             {/*
-            <button className="block rounded-md bg-sky-600 hover:bg-sky-300 px-3 py-2 shadow-sm text-white ml-10" name="Book Venue"
+            <button className="block rounded-md bg-sky-600 hover:bg-sky-300 px-3 py-2 shadow-sm text-white ml-10" name="Book Hotel"
             onClick={() => {countRef.current = countRef.current+1; alert(countRef.current)}}>
                 Count with Ref
             </button>
@@ -93,7 +93,7 @@ export default function CardPanel() {
             p-2 m-2 bg-purple-50 ring-1 ring-inset ring-purple-400 
             focus:outline-none focus:bg-purple-200 focus:ring-2"
             ref={inputRef}/>
-            <button className="block rounded-md bg-sky-600 hover:bg-sky-300 px-3 py-2 shadow-sm text-white ml-10" name="Book Venue"
+            <button className="block rounded-md bg-sky-600 hover:bg-sky-300 px-3 py-2 shadow-sm text-white ml-10" name="Book Hotel"
             onClick={() => {if(inputRef.current != null) inputRef.current.focus()}}>
                 Focus Input
             </button>

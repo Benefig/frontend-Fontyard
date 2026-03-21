@@ -24,9 +24,9 @@ export default function Banner() {
             priority
             style={{ objectFit: "cover" }}/>
             <div className = {styles.bannerText}>
-                <h1 className = {`${titleColor[index%titleColor.length]} text-6xl font-bold`}>where every event finds its venue</h1>
-                <h3 className = {`${descColor[index%descColor.length]} text-xl font-serif`}>Finding the greatest high venue has never been this convenient. OwO <br />
-                Whether it is a wedding, fight-scene, or super-private party, we connect places and people through our [chaos and harmony].</h3>
+                <h1 className = {`${titleColor[index%titleColor.length]} text-6xl font-bold`}>where every man finds their hotel</h1>
+                <h3 className = {`${descColor[index%descColor.length]} text-xl font-serif`}>Finding the greatest high hotel has never been this convenient. OwO <br />
+                Whether it is for a wedding, fight-scene, or super-private resting, we connect hotels and people through our [chaos and harmony].</h3>
             </div>
             {
                 session? <div className={`z-30 absolute top-5 right-10 font-semibold ${titleColor[index%titleColor.length]} text-2xl`}>Welcome {session.user?.name} </div>
@@ -35,8 +35,8 @@ export default function Banner() {
             <button className='bg-white text-cyan-600 border border-cyan-600 font-semibold 
             py-4 px-6 m-5 rounded z-30 absolute bottom-0 right-0 text-lg
             hover:text-white hover:bg-cyan-600 hover-border-transparent'
-            onClick={(e) => {e.stopPropagation(); router.push('/venue');}}>
-                Select Venue
+            onClick={(e) => {e.stopPropagation(); router.push('/hotel');}}>
+                Select Hotel
             </button>
         </div>
     );

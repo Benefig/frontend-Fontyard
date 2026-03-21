@@ -2,7 +2,7 @@
 
 export default function InteractiveCard( {children, contentName} : {children:React.ReactNode, contentName:string} ) {
 
-    function onVenueSelected() {
+    function onHotelSelected() {
         alert("You selected " + contentName);
     }
 
@@ -22,7 +22,7 @@ export default function InteractiveCard( {children, contentName} : {children:Rea
 
     return (
         <div className = {'w-full h-[360px] bg-white shadow-lg rounded-lg p-[5px]'} 
-        /*onClick={() => onVenueSelected()}*/
+        /*onClick={() => onHotelSelected()}*/
         onMouseOver={(e) => onCardMouseAction(e)}
         onMouseOut={(e) => onCardMouseAction(e)}>
             {children}

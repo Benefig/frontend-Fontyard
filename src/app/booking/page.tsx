@@ -1,8 +1,8 @@
-import getVenues from "@/libs/getVenues";
+import getHotels from "@/libs/getHotels";
 import BookingClient from "@/components/BookingClient";
 
 export default async function BookingPage() {
-    const venues = await getVenues();
+    const hotels = await getHotels();
 
-    return <BookingClient venues={venues} />;
+    return <BookingClient hotels={hotels} />;
 }

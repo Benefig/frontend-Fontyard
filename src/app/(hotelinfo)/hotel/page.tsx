@@ -1,18 +1,18 @@
 import CardPanel from "@/components/CardPanel";
-import getVenues from "@/libs/getVenues";
-import VenueCatalog from "@/components/VenueCatalog";
+import getHotels from "@/libs/getHotels";
+import HotelCatalog from "@/components/HotelCatalog";
 import { Suspense } from "react";
 import { LinearProgress } from "@mui/material";
 
-export default function Venue() {
-    const venues = getVenues();
+export default function Hotel() {
+    const hotels = getHotels();
 
     return(
         <main className="pb-10">
-            <h1 className="text-2xl font-bold text-center">Select Your Soulmate Venue</h1>
+            <h1 className="text-2xl font-bold text-center">Select Your Soulmate Hotel</h1>
             {/*<CardPanel/>*/}
             <Suspense fallback={<p className="text-center">Loading ... <LinearProgress/></p>}>
-               <VenueCatalog venuesJson={venues}/> 
+               <HotelCatalog hotelsJson={hotels}/> 
             </Suspense>
             
 

@@ -9,12 +9,12 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { addBooking } from "@/redux/features/bookSlice";
 
-export default function BookingClient({ venues }: { venues: VenueJson }) {
+export default function BookingClient({ hotels }: { hotels: HotelJson }) {
 
     const urlParams = useSearchParams();
-    const vid = urlParams.get('id');
+    const hid = urlParams.get('id');
 
-    const selectedVenue = venues.data.find(v => v._id === vid);
+    const selectedHotel = hotels.data.find(v => v._id === hid);
 
     const dispatch = useDispatch<AppDispatch>();
 
@@ -29,12 +29,12 @@ export default function BookingClient({ venues }: { venues: VenueJson }) {
             return;
         }
 
-        const selectedVenue = venues.data.find(v => v._id === bookLocation);
+        const selectedHotel = hotels.data.find(v => v._id === bookLocation);
 
         const item: BookingItem = {
             nameLastname,
             tel,
-            venue: selectedVenue?.name ?? "",
+            hotel: selectedHotel?.name ?? "",
             bookDate: bookDate.format("YYYY/MM/DD")
         };
 
@@ -43,8 +43,8 @@ export default function BookingClient({ venues }: { venues: VenueJson }) {
 
     return (
         <main className="w-full flex flex-col items-center space-y-4">
-            <div className="text-2xl font-semibold">Venue Booking</div>
-            <div className="text-xl font-medium">Venue: {selectedVenue?.name ?? "none"}</div>
+            <div className="text-2xl font-semibold">Hotel Booking</div>
+            <div className="text-xl font-medium">Hotel: {selectedHotel?.name ?? "none"}</div>
 
             <div className="flex flex-col gap-4">
                 <TextField
@@ -66,8 +66,8 @@ export default function BookingClient({ venues }: { venues: VenueJson }) {
                 <div className="text-gray-600">Event Date and Location</div>
 
                 <DateReserve
-                    locationId={vid ?? ''}
-                    venuesJson={venues}
+                    locationId={hid ?? ''}
+                    hotelsJson={hotels}
                     onDateChange={(value: Dayjs | null) => setBookDate(value)}
                     onLocationChange={(value: string) => setBookLocation(value)}
                 />
@@ -77,7 +77,7 @@ export default function BookingClient({ venues }: { venues: VenueJson }) {
                 className="bg-sky-600 hover:bg-sky-300 text-white px-3 py-2 rounded-md"
                 onClick={makeBooking}
             >
-                Book Venue
+                Book Hotel
             </button>
         </main>
     );
