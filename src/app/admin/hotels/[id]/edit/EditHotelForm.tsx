@@ -61,7 +61,7 @@ export default function EditHotelForm({ hotel }: { hotel: HotelItem }) {
                     <div key={f.key} className="flex flex-col gap-1">
                         <label className="text-sm font-medium text-gray-700">{f.label}</label>
                         <input
-                            type={f.type ?? 'text'}
+                            type={('type' in f ? f.type : undefined) ?? 'text'}
                             required
                             value={form[f.key]}
                             onChange={(e) => set(f.key, e.target.value)}

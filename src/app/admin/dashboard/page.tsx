@@ -10,7 +10,7 @@ export default async function AdminDashboard() {
 
     const [hotels, bookings] = await Promise.all([
         getHotels(),
-        getBookings(token).catch(() => ({ count: 0, data: [] } as ApiBookingJson)),
+        getBookings(token).catch(() => ({ success: false, count: 0, data: [] } as ApiBookingJson)),
     ]);
 
     const stats = [

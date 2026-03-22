@@ -9,7 +9,7 @@ export default async function MyBookingPage() {
     const session = await getServerSession(authOptions);
     if (!session) redirect('/api/auth/signin');
 
-    const bookings = await getBookings(session.user.token).catch(() => ({ count: 0, data: [] } as ApiBookingJson));
+    const bookings = await getBookings(session.user.token).catch(() => ({ success: false, count: 0, data: [] } as ApiBookingJson));
     const myBookings = bookings.data.filter((b) => b.hotel?.name);
 
     if (myBookings.length === 0) {
