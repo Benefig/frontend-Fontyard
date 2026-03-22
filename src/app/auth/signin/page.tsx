@@ -38,7 +38,7 @@ export default function SigninPage() {
         <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-12">
             <div className="w-full max-w-md bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
                 <div className="text-center mb-6">
-                    <span className="text-2xl font-bold text-blue-600">Fontyard</span>
+                    <span className="text-2xl font-bold text-green-700">Fontyard</span>
                     <h1 className="text-2xl font-bold text-gray-800 mt-1">เข้าสู่ระบบ</h1>
                 </div>
 
@@ -67,7 +67,7 @@ export default function SigninPage() {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="email@example.com"
-                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
                         />
                     </div>
 
@@ -80,7 +80,7 @@ export default function SigninPage() {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="อย่างน้อย 6 ตัวอักษร"
-                                className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-16"
+                                className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent pr-16"
                             />
                             <button
                                 type="button"
@@ -95,7 +95,7 @@ export default function SigninPage() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="mt-2 w-full py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                        className="mt-2 w-full py-2.5 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                         {loading ? "กำลังเข้าสู่ระบบ..." : "เข้าสู่ระบบ"}
                     </button>
@@ -103,7 +103,7 @@ export default function SigninPage() {
 
                 <p className="text-center text-sm text-gray-500 mt-6">
                     ไม่มีบัญชี?{" "}
-                    <Link href="/auth/register" className="text-blue-600 hover:underline font-medium">
+                    <Link href="/auth/register" className="text-green-700 hover:underline font-medium">
                         สมัครสมาชิก
                     </Link>
                 </p>

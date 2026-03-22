@@ -10,7 +10,7 @@ const roleLabel: Record<string, string> = {
 };
 
 const roleBadgeColor: Record<string, string> = {
-    user: 'bg-blue-100 text-blue-700',
+    user: 'bg-green-100 text-green-800',
     admin: 'bg-orange-100 text-orange-700',
     PomPhet: 'bg-purple-100 text-purple-700',
 };
@@ -27,7 +27,7 @@ export default async function ProfilePage() {
             <h1 className="text-2xl font-bold text-gray-800 mb-8">โปรไฟล์</h1>
             <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-8">
                 <div className="flex items-center gap-4 mb-8">
-                    <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center text-white text-2xl font-bold shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-green-700 flex items-center justify-center text-white text-2xl font-bold shrink-0">
                         {initial}
                     </div>
                     <div>
@@ -56,7 +56,7 @@ export default async function ProfilePage() {
                 <div className="mt-8 pt-6 border-t border-gray-100 flex gap-3">
                     <Link
                         href="/mybooking"
-                        className="px-5 py-2.5 text-sm font-semibold text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-50 transition-colors"
+                        className="px-5 py-2.5 text-sm font-semibold text-green-700 border border-green-200 rounded-lg hover:bg-green-50 transition-colors"
                     >
                         รายการจองของฉัน
                     </Link>

@@ -45,7 +45,7 @@
 
 .ctaBtn {
     padding: 14px 40px;
-    background-color: #2563EB;
+    background-color: #3D7A47;
     color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
@@ -57,7 +57,7 @@
 }
 
 .ctaBtn:hover {
-    background-color: #1D4ED8;
+    background-color: #2C5F34;
     transform: translateY(-2px);
 }
 

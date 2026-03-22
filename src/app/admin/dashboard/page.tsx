@@ -41,7 +41,7 @@ export default async function AdminDashboard() {
             <div className="bg-white rounded-xl border border-gray-200 p-6">
                 <div className="flex items-center justify-between mb-5">
                     <h2 className="text-lg font-semibold text-gray-800">การจองล่าสุด</h2>
-                    <Link href="/admin/bookings" className="text-sm text-blue-600 hover:underline">
+                    <Link href="/admin/bookings" className="text-sm text-green-700 hover:underline">
                         ดูทั้งหมด →
                     </Link>
                 </div>

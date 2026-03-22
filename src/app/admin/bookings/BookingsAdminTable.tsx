@@ -46,7 +46,7 @@ export default function BookingsAdminTable({ bookings }: { bookings: ApiBookingJ
                                         type="date"
                                         value={editDate}
                                         onChange={(e) => setEditDate(e.target.value)}
-                                        className="px-2 py-1 border border-blue-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="px-2 py-1 border border-green-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-green-600"
                                     />
                                 ) : (
                                     new Date(b.apptDate).toLocaleDateString('th-TH')
@@ -61,7 +61,7 @@ export default function BookingsAdminTable({ bookings }: { bookings: ApiBookingJ
                                         <button
                                             onClick={() => handleEditSave(b._id)}
                                             disabled={pending}
-                                            className="px-3 py-1.5 text-xs font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50"
+                                            className="px-3 py-1.5 text-xs font-medium text-white bg-green-700 rounded-md hover:bg-green-800 transition-colors disabled:opacity-50"
                                         >
                                             บันทึก
                                         </button>

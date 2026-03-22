@@ -10,7 +10,7 @@ const roleLabel: Record<string, string> = {
 };
 
 const roleBadgeColor: Record<string, string> = {
-    user: 'bg-blue-100 text-blue-700',
+    user: 'bg-green-100 text-green-800',
     admin: 'bg-orange-100 text-orange-700',
     PomPhet: 'bg-purple-100 text-purple-700',
 };

@@ -49,7 +49,7 @@ export default function BookingClient({ hotels }: { hotels: HotelJson }) {
                 <p className="text-gray-500 mb-8 text-sm">การจองของคุณได้รับการบันทึกเรียบร้อยแล้ว</p>
                 <Link
                     href="/mybooking"
-                    className="inline-block px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                    className="inline-block px-6 py-2.5 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors text-sm"
                 >
                     ดูรายการจองของฉัน
                 </Link>
@@ -60,7 +60,7 @@ export default function BookingClient({ hotels }: { hotels: HotelJson }) {
     return (
         <main className="max-w-lg mx-auto px-4 py-8">
             <div className="mb-5">
-                <Link href="/hotel" className="text-sm text-blue-600 hover:underline">
+                <Link href="/hotel" className="text-sm text-green-700 hover:underline">
                     ← กลับไปรายการโรงแรม
                 </Link>
             </div>
@@ -99,7 +99,7 @@ export default function BookingClient({ hotels }: { hotels: HotelJson }) {
                         />
                     </div>
                     <button
-                        className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors mt-1"
+                        className="w-full py-3 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors mt-1"
                         onClick={makeBooking}
                     >
                         ยืนยันการจอง

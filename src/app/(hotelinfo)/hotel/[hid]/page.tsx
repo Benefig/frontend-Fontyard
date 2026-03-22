@@ -9,7 +9,7 @@ export default async function HotelDetailPage({ params }: { params: Promise<{ hi
 
     return (
         <main className="max-w-6xl mx-auto px-4 py-8">
-            <Link href="/hotel" className="text-sm text-blue-600 hover:underline mb-6 inline-block">
+            <Link href="/hotel" className="text-sm text-green-700 hover:underline mb-6 inline-block">
                 ← กลับไปรายการโรงแรม
             </Link>
 

@@ -11,7 +11,7 @@ export default async function AdminHotelsPage() {
                 <h1 className="text-2xl font-bold text-gray-800">จัดการโรงแรม</h1>
                 <Link
                     href="/admin/hotels/new"
-                    className="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                    className="px-4 py-2 bg-green-700 text-white text-sm font-semibold rounded-lg hover:bg-green-800 transition-colors"
                 >
                     + เพิ่มโรงแรมใหม่
                 </Link>

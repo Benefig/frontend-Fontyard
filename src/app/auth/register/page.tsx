@@ -61,7 +61,7 @@ export default function RegisterPage() {
         <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-12">
             <div className="w-full max-w-md bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
                 <div className="text-center mb-8">
-                    <span className="text-2xl font-bold text-blue-600">Fontyard</span>
+                    <span className="text-2xl font-bold text-green-700">Fontyard</span>
                     <h1 className="text-2xl font-bold text-gray-800 mt-3">สมัครสมาชิก</h1>
                 </div>
 
@@ -80,7 +80,7 @@ export default function RegisterPage() {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             placeholder="ชื่อ-นามสกุล"
-                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
                         />
                     </div>
 
@@ -92,7 +92,7 @@ export default function RegisterPage() {
                             value={tel}
                             onChange={(e) => setTel(e.target.value)}
                             placeholder="0XX-XXX-XXXX"
-                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
                         />
                     </div>
 
@@ -104,7 +104,7 @@ export default function RegisterPage() {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="email@example.com"
-                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
                         />
                     </div>
 
@@ -117,7 +117,7 @@ export default function RegisterPage() {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="อย่างน้อย 6 ตัวอักษร"
-                                className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-10"
+                                className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent pr-10"
                             />
                             <button
                                 type="button"
@@ -134,7 +134,7 @@ export default function RegisterPage() {
                         <select
                             value={role}
                             onChange={(e) => setRole(e.target.value)}
-                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent bg-white"
                         >
                             <option value="user">ผู้ใช้ทั่วไป</option>
                             <option value="admin">แอดมิน</option>
@@ -149,14 +149,14 @@ export default function RegisterPage() {
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             placeholder="กรอกรหัสผ่านอีกครั้ง"
-                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
                         />
                     </div>
 
                     <button
                         type="submit"
                         disabled={loading}
-                        className="mt-2 w-full py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed text-sm"
+                        className="mt-2 w-full py-2.5 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed text-sm"
                     >
                         {loading ? "กำลังสมัครสมาชิก..." : "สมัครสมาชิก"}
                     </button>
@@ -164,7 +164,7 @@ export default function RegisterPage() {
 
                 <p className="text-center text-sm text-gray-500 mt-6">
                     มีบัญชีแล้ว?{" "}
-                    <Link href="/auth/signin" className="text-blue-600 hover:underline font-medium">
+                    <Link href="/auth/signin" className="text-green-700 hover:underline font-medium">
                         เข้าสู่ระบบ
                     </Link>
                 </p>

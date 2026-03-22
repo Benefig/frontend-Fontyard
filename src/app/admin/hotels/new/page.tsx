@@ -62,7 +62,7 @@ export default function NewHotelPage() {
                             required
                             value={form[f.key]}
                             onChange={(e) => set(f.key, e.target.value)}
-                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
                         />
                     </div>
                 ))}
@@ -73,7 +73,7 @@ export default function NewHotelPage() {
                         required
                         value={form.region}
                         onChange={(e) => set('region', e.target.value)}
-                        className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-600"
                     >
                         <option value="">เลือกภูมิภาค</option>
                         {regions.map((r) => <option key={r} value={r}>{r}</option>)}
@@ -90,7 +90,7 @@ export default function NewHotelPage() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-60"
+                        className="px-5 py-2.5 bg-green-700 text-white text-sm font-semibold rounded-lg hover:bg-green-800 transition-colors disabled:opacity-60"
                     >
                         {loading ? 'กำลังบันทึก...' : 'เพิ่มโรงแรม'}
                     </button>

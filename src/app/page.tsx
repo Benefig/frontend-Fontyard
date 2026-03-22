@@ -13,7 +13,7 @@ export default function Home() {
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
                         <div className="flex flex-col items-center text-center gap-4">
-                            <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center text-3xl">
+                            <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center text-3xl">
                                 🔍
                             </div>
                             <h3 className="text-lg font-semibold text-gray-800">ค้นหาโรงแรม</h3>
@@ -22,7 +22,7 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="flex flex-col items-center text-center gap-4">
-                            <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center text-3xl">
+                            <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center text-3xl">
                                 📅
                             </div>
                             <h3 className="text-lg font-semibold text-gray-800">เลือกวันเข้าพัก</h3>
@@ -31,7 +31,7 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="flex flex-col items-center text-center gap-4">
-                            <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center text-3xl">
+                            <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center text-3xl">
                                 ✅
                             </div>
                             <h3 className="text-lg font-semibold text-gray-800">ยืนยันการจอง</h3>
@@ -52,7 +52,7 @@ export default function Home() {
                 </p>
                 <Link
                     href="/hotel"
-                    className="inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                    className="inline-block px-8 py-3 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors text-sm"
                 >
                     ดูโรงแรมทั้งหมด
                 </Link>

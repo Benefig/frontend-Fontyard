@@ -24,7 +24,7 @@ export default async function AdminUsersPage() {
                 </span>
             </div>
             {!isPomPhet && (
-                <div className="mb-4 px-4 py-3 bg-blue-50 border border-blue-200 rounded-lg text-blue-700 text-sm">
+                <div className="mb-4 px-4 py-3 bg-green-50 border border-green-200 rounded-lg text-green-800 text-sm">
                     คุณมีสิทธิ์ดูข้อมูลผู้ใช้ได้เท่านั้น การแก้ไขต้องใช้สิทธิ์ Super Admin
                 </div>
             )}

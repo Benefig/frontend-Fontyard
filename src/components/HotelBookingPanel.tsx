@@ -23,7 +23,7 @@ export default function HotelBookingPanel({ hotelId, hotelName }: { hotelId: str
                 <p className="text-gray-600">กรุณาเข้าสู่ระบบเพื่อจองห้องพัก</p>
                 <Link
                     href="/api/auth/signin"
-                    className="px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                    className="px-5 py-2.5 bg-green-700 text-white text-sm font-semibold rounded-lg hover:bg-green-800 transition-colors"
                 >
                     เข้าสู่ระบบ
                 </Link>
@@ -92,7 +92,7 @@ export default function HotelBookingPanel({ hotelId, hotelName }: { hotelId: str
                 <button
                     onClick={handleBook}
                     disabled={loading}
-                    className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors mt-1 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full py-3 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors mt-1 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                     {loading ? (
                         <>

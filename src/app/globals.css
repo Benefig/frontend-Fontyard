@@ -2,9 +2,9 @@
 
 /* ─── Design Tokens ─────────────────────────────────────────── */
 :root {
-  --primary: #2563EB;
-  --primary-dark: #1D4ED8;
-  --primary-light: #EFF6FF;
+  --primary: #3D7A47;
+  --primary-dark: #2C5F34;
+  --primary-light: #EBF5EC;
   --secondary: #F59E0B;
   --success: #10B981;
   --danger: #EF4444;

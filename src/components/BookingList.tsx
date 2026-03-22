@@ -17,7 +17,7 @@ export default function BookingList() {
                 <p className="text-gray-400 text-sm">เริ่มค้นหาโรงแรมที่ใช่สำหรับคุณได้เลย</p>
                 <Link
                     href="/hotel"
-                    className="mt-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                    className="mt-2 px-6 py-2.5 bg-green-700 text-white text-sm font-semibold rounded-lg hover:bg-green-800 transition-colors"
                 >
                     ค้นหาโรงแรม
                 </Link>
@@ -48,7 +48,7 @@ export default function BookingList() {
                                 </div>
                             </div>
                             <div className="text-right shrink-0">
-                                <p className="text-sm font-medium text-blue-600">📅 {item.bookDate}</p>
+                                <p className="text-sm font-medium text-green-700">📅 {item.bookDate}</p>
                             </div>
                         </div>
                         <div className="mt-4 pt-4 border-t border-gray-100 flex justify-end">
