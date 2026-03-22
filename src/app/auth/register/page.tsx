@@ -46,7 +46,7 @@ export default function RegisterPage() {
 
             if (result?.error) {
                 setError("สมัครสมาชิกสำเร็จ แต่เข้าสู่ระบบไม่ได้ กรุณาลองใหม่");
-                router.push("/api/auth/signin");
+                router.push("/auth/signin");
             } else {
                 router.push("/hotel");
             }
@@ -164,7 +164,7 @@ export default function RegisterPage() {
 
                 <p className="text-center text-sm text-gray-500 mt-6">
                     มีบัญชีแล้ว?{" "}
-                    <Link href="/api/auth/signin" className="text-blue-600 hover:underline font-medium">
+                    <Link href="/auth/signin" className="text-blue-600 hover:underline font-medium">
                         เข้าสู่ระบบ
                     </Link>
                 </p>

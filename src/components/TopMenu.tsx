@@ -36,12 +36,12 @@ export default async function TopMenu() {
                         <div className={styles.dropdown}>
                             <Link href="/my/profile" className={styles.dropdownItem}>โปรไฟล์</Link>
                             <div className={styles.dropdownDivider} />
-                            <Link href="/api/auth/signout" className={styles.dropdownItem}>ออกจากระบบ</Link>
+                            <Link href="/auth/signout" className={styles.dropdownItem}>ออกจากระบบ</Link>
                         </div>
                     </div>
                 ) : (
                     <>
-                        <Link href="/api/auth/signin" className={styles.signInBtn}>เข้าสู่ระบบ</Link>
+                        <Link href="/auth/signin" className={styles.signInBtn}>เข้าสู่ระบบ</Link>
                         <Link href="/auth/register" className={styles.signUpBtn}>สมัครสมาชิก</Link>
                     </>
                 )}
