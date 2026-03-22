@@ -1,54 +1,38 @@
-'use client'
-
-import { useState, useEffect } from "react";
 import Image from 'next/image';
 import InteractiveCard from './InteractiveCard';
-import { Rating } from '@mui/material';
-import { useSession } from "next-auth/react";
 
-export default function Card({hotelName, imgSrc, hotelDesc, onCompare}:{hotelName:string, imgSrc:string, hotelDesc?:string, onCompare?:Function}) {
-
-    const { data: session } = useSession();
-    const userId = session?.user?._id ?? "guest";
-
-    const [rating, setRating] = useState<number | null>(0);
-
-    useEffect(() => {
-        const saved = localStorage.getItem(`rating-${userId}-${hotelName}`);
-        if (saved) setRating(Number(saved));
-    }, [hotelName, userId]);
-
+export default function Card({
+    hotelName,
+    imgSrc,
+    province,
+    dailyrate,
+}: {
+    hotelName: string;
+    imgSrc: string;
+    province?: string;
+    dailyrate?: number;
+}) {
     return (
         <InteractiveCard contentName={hotelName}>
-            <div className='w-full h-[60%] relative rounded-t-lg'>
-                <Image src={imgSrc} alt='Hotel Picture' fill className='object-cover rounded-t-lg'/>
+            <div className="w-full h-48 relative">
+                <Image
+                    src={imgSrc}
+                    alt="Hotel Picture"
+                    fill
+                    className="object-cover rounded-t-lg"
+                />
             </div>
-
-            <div className='w-full h-[30%] p-[5px]'>
-                <h3 className='underline font-bold text-[20px] text-[chocolate]'>
-                    {hotelName}
-                </h3>
-                {hotelDesc && (
-                    <p className='text-[14px] font-serif text-[darkgreen]'>
-                        {hotelDesc}
+            <div className="px-3 pt-3 pb-4 flex flex-col gap-1">
+                <h3 className="font-semibold text-[17px] text-gray-800 truncate">{hotelName}</h3>
+                {province && (
+                    <p className="text-sm text-gray-500">📍 {province}</p>
+                )}
+                {dailyrate !== undefined && (
+                    <p className="text-[15px] font-bold text-amber-500">
+                        ฿{dailyrate.toLocaleString()} <span className="font-normal text-gray-400 text-xs">/ คืน</span>
                     </p>
                 )}
             </div>
-
-            <Rating
-                value={rating}
-                onClick={(e) => e.stopPropagation()}
-                onChange={(e, newValue) => {
-                    setRating(newValue);
-                    if (newValue !== null) {
-                        localStorage.setItem(
-                            `rating-${userId}-${hotelName}`,
-                            newValue.toString()
-                        );
-                    }
-                    onCompare?.(hotelName, newValue ?? 0);
-                }}
-            />
         </InteractiveCard>
     );
 }

@@ -1,30 +1,8 @@
 'use client'
 
-export default function InteractiveCard( {children, contentName} : {children:React.ReactNode, contentName:string} ) {
-
-    function onHotelSelected() {
-        alert("You selected " + contentName);
-    }
-
-    function onCardMouseAction(event:React.SyntheticEvent) {
-        if(event.type == 'mouseover') {
-            event.currentTarget.classList.remove('shadow-lg');
-            event.currentTarget.classList.add('shadow-2xl');
-            event.currentTarget.classList.remove('bg-white');
-            event.currentTarget.classList.add('bg-neutral-200');
-        } else {
-            event.currentTarget.classList.remove('shadow-2xl');
-            event.currentTarget.classList.add('shadow-lg');
-            event.currentTarget.classList.remove('bg-neutral-200');
-            event.currentTarget.classList.add('bg-white');
-        }
-    }
-
+export default function InteractiveCard({ children, contentName }: { children: React.ReactNode; contentName: string }) {
     return (
-        <div className = {'w-full h-[360px] bg-white shadow-lg rounded-lg p-[5px]'} 
-        /*onClick={() => onHotelSelected()}*/
-        onMouseOver={(e) => onCardMouseAction(e)}
-        onMouseOut={(e) => onCardMouseAction(e)}>
+        <div className="w-full bg-white rounded-xl overflow-hidden border border-gray-100 cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-lg active:scale-[0.98] active:shadow-sm" style={{ boxShadow: 'var(--shadow-sm)' }}>
             {children}
         </div>
     );

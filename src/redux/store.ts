@@ -19,7 +19,7 @@ function createPersistStorage(): WebStorage {
 const storage = createPersistStorage();
 
 const persistConfig = {
-    key: "rootPersist",
+    key: "rootPersist_v2",
     storage
 }
 
