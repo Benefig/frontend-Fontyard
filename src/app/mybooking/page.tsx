@@ -19,11 +19,10 @@ export default async function MyBookingPage() {
                 <div className="text-5xl">🏨</div>
                 <h3 className="text-xl font-semibold text-gray-700">ยังไม่มีการจอง</h3>
                 <p className="text-gray-400 text-sm">เริ่มค้นหาโรงแรมที่ใช่สำหรับคุณได้เลย</p>
-                <Link
-                    href="/hotel"
-                    className="mt-2 px-6 py-2.5 bg-green-700 text-white text-sm font-semibold rounded-lg hover:bg-green-800 transition-colors"
-                >
-                    ค้นหาโรงแรม
+                <Link href="/hotel">
+                    <div className="mt-2 px-6 py-2.5 bg-green-700 text-white text-sm font-semibold rounded-lg hover:bg-green-800 transition-colors">
+                        ค้นหาโรงแรม
+                    </div>
                 </Link>
             </main>
         );

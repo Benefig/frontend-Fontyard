@@ -21,11 +21,10 @@ export default function HotelBookingPanel({ hotelId, hotelName }: { hotelId: str
         return (
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-6 text-center flex flex-col items-center gap-4">
                 <p className="text-gray-600">กรุณาเข้าสู่ระบบเพื่อจองห้องพัก</p>
-                <Link
-                    href="/api/auth/signin"
-                    className="px-5 py-2.5 bg-green-700 text-white text-sm font-semibold rounded-lg hover:bg-green-800 transition-colors"
-                >
-                    เข้าสู่ระบบ
+                <Link href="/api/auth/signin">
+                    <div className="px-5 py-2.5 bg-green-700 text-white text-sm font-semibold rounded-lg hover:bg-green-800 transition-colors">
+                        เข้าสู่ระบบ
+                    </div>
                 </Link>
             </div>
         );
@@ -37,11 +36,10 @@ export default function HotelBookingPanel({ hotelId, hotelName }: { hotelId: str
                 <div className="text-4xl">✅</div>
                 <h3 className="font-semibold text-green-800">จองสำเร็จ!</h3>
                 <p className="text-green-600 text-sm">การจองของคุณได้รับการบันทึกแล้ว</p>
-                <Link
-                    href="/mybooking"
-                    className="mt-1 px-5 py-2.5 bg-green-600 text-white text-sm font-semibold rounded-lg hover:bg-green-700 transition-colors"
-                >
-                    ดูรายการจองของฉัน
+                <Link href="/mybooking">
+                    <div className="inline-block px-6 py-2.5 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors text-sm">
+                        ดูรายการจองของฉัน
+                    </div>
                 </Link>
             </div>
         );

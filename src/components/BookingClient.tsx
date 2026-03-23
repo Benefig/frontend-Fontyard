@@ -45,11 +45,10 @@ export default function BookingClient({ hotels }: { hotels: HotelJson }) {
                 <div className="text-5xl mb-4">✅</div>
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">จองสำเร็จ!</h2>
                 <p className="text-gray-500 mb-8 text-sm">การจองของคุณได้รับการบันทึกเรียบร้อยแล้ว</p>
-                <Link
-                    href="/mybooking"
-                    className="inline-block px-6 py-2.5 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors text-sm"
-                >
-                    ดูรายการจองของฉัน
+                <Link href="/mybooking">
+                    <div className="inline-block px-6 py-2.5 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors text-sm">
+                        ดูรายการจองของฉัน
+                    </div>
                 </Link>
             </div>
         );
