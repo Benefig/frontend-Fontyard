@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import getBookings from "@/libs/getBookings";
 import Link from "next/link";
 import CancelBookingBtn from "./CancelBookingBtn";
+import EditBookingBtn from "./EditBookingBtn";
 
 export default async function MyBookingPage() {
     const session = await getServerSession(authOptions);
@@ -56,7 +57,8 @@ export default async function MyBookingPage() {
                                 </p>
                             </div>
                         </div>
-                        <div className="mt-4 pt-4 border-t border-gray-100 flex justify-end">
+                        <div className="mt-4 pt-4 border-t border-gray-100 flex justify-end gap-2">
+                            <EditBookingBtn bookingId={b._id} currentDate={b.apptDate} />
                             <CancelBookingBtn bookingId={b._id} />
                         </div>
                     </div>

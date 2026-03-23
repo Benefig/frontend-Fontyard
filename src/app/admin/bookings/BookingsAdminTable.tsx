@@ -26,7 +26,7 @@ export default function BookingsAdminTable({ bookings }: { bookings: ApiBookingJ
             <table className="w-full text-sm">
                 <thead className="bg-gray-50 border-b border-gray-200">
                     <tr className="text-left text-xs text-gray-500 uppercase">
-                        <th className="px-4 py-3 font-medium">User ID</th>
+                        <th className="px-4 py-3 font-medium">ชื่อผู้ใช้</th>
                         <th className="px-4 py-3 font-medium">โรงแรม</th>
                         <th className="px-4 py-3 font-medium">จังหวัด</th>
                         <th className="px-4 py-3 font-medium">วันเข้าพัก</th>
@@ -35,9 +35,14 @@ export default function BookingsAdminTable({ bookings }: { bookings: ApiBookingJ
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
-                    {bookings.data.filter((b) => b.hotel?.name).map((b) => (
+                    {bookings.data.filter((b) => b.hotel?.name && b.user).map((b) => (
                         <tr key={b._id} className="hover:bg-gray-50">
-                            <td className="px-4 py-3 text-gray-400 font-mono text-xs">{typeof b.user === 'string' ? b.user : b.user?._id ?? '-'}</td>
+                            <td className="px-4 py-3 text-gray-700 text-sm">
+                                <div className="font-medium">{typeof b.user === 'object' ? b.user?.name : b.user}</div>
+                                {typeof b.user === 'object' && b.user?.email && (
+                                    <div className="text-xs text-gray-400">{b.user.email}</div>
+                                )}
+                            </td>
                             <td className="px-4 py-3 font-medium text-gray-800">{b.hotel?.name}</td>
                             <td className="px-4 py-3 text-gray-500">{b.hotel?.province ?? '-'}</td>
                             <td className="px-4 py-3 text-gray-600">

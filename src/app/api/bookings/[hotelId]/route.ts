@@ -24,6 +24,26 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ hot
     return NextResponse.json(data, { status: response.status });
 }
 
+export async function PUT(req: NextRequest, { params }: { params: Promise<{ hotelId: string }> }) {
+    const session = await getServerSession(authOptions);
+    if (!session) return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+
+    const { hotelId } = await params;
+    const body = await req.json();
+
+    const response = await fetch(`${base()}/api/v1/bookings/${hotelId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${session.user.token}`,
+        },
+        body: JSON.stringify(body),
+    });
+
+    const data = await response.json().catch(() => ({}));
+    return NextResponse.json(data, { status: response.status });
+}
+
 export async function DELETE(_req: NextRequest, { params }: { params: Promise<{ hotelId: string }> }) {
     const session = await getServerSession(authOptions);
     if (!session) return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });

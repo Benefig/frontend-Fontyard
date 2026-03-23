@@ -151,3 +151,18 @@
     background-color: #E5E7EB;
     margin: 4px 0;
 }
+
+.logoutBtn {
+    padding: 7px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #DC2626;
+    border: 1px solid #DC2626;
+    border-radius: 6px;
+    transition: background-color 0.15s;
+}
+
+.logoutBtn:hover {
+    background-color: #FEF2F2;
+}
+

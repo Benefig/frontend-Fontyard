@@ -1,44 +1,42 @@
 'use client'
 
 import DateReserve from "@/components/DateReserve";
-import { TextField } from "@mui/material";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import dayjs, { Dayjs } from "dayjs";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/redux/store";
-import { addBooking } from "@/redux/features/bookSlice";
 import Link from "next/link";
+import createBooking from "@/libs/createBooking";
 
 export default function BookingClient({ hotels }: { hotels: HotelJson }) {
     const urlParams = useSearchParams();
     const hid = urlParams.get('id');
     const selectedHotel = hotels.data.find(v => v._id === hid);
+    const router = useRouter();
 
-    const dispatch = useDispatch<AppDispatch>();
-
-    const [nameLastname, setNameLastname] = useState("");
-    const [tel, setTel] = useState("");
     const [bookDate, setBookDate] = useState<Dayjs | null>(null);
-    const [bookLocation, setBookLocation] = useState("");
+    const [bookLocation, setBookLocation] = useState(hid ?? "");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
     const [booked, setBooked] = useState(false);
 
-    const makeBooking = () => {
-        if (!nameLastname || !tel || !bookDate || !bookLocation) {
-            alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+    const makeBooking = async () => {
+        if (!bookDate || !bookLocation) {
+            setError("กรุณากรอกข้อมูลให้ครบถ้วน");
             return;
         }
-
-        const target = hotels.data.find(v => v._id === bookLocation);
-        const item: BookingItem = {
-            nameLastname,
-            tel,
-            hotel: target?.name ?? "",
-            bookDate: bookDate.format("DD/MM/YYYY"),
-        };
-
-        dispatch(addBooking(item));
-        setBooked(true);
+        setError("");
+        setLoading(true);
+        try {
+            await createBooking(bookLocation, bookDate.toISOString());
+            setBooked(true);
+        } catch (err: any) {
+            const msg: string = err.message ?? '';
+            setError(msg.includes('already made 3 bookings')
+                ? 'คุณมีการจองครบ 3 รายการแล้ว กรุณายกเลิกการจองเก่าก่อน'
+                : msg || 'เกิดข้อผิดพลาด กรุณาลองใหม่');
+        } finally {
+            setLoading(false);
+        }
     };
 
     if (booked) {
@@ -72,23 +70,14 @@ export default function BookingClient({ hotels }: { hotels: HotelJson }) {
                         <span className="font-medium text-gray-700">{selectedHotel.name}</span>
                     </p>
                 )}
+
+                {error && (
+                    <div className="mb-4 px-3 py-2.5 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+                        {error}
+                    </div>
+                )}
+
                 <div className="flex flex-col gap-5">
-                    <TextField
-                        variant="outlined"
-                        label="ชื่อ-นามสกุล"
-                        size="small"
-                        fullWidth
-                        value={nameLastname}
-                        onChange={(e) => setNameLastname(e.target.value)}
-                    />
-                    <TextField
-                        variant="outlined"
-                        label="เบอร์โทรศัพท์"
-                        size="small"
-                        fullWidth
-                        value={tel}
-                        onChange={(e) => setTel(e.target.value)}
-                    />
                     <div>
                         <p className="text-sm text-gray-600 mb-2">วันเข้าพักและสถานที่</p>
                         <DateReserve
@@ -99,10 +88,11 @@ export default function BookingClient({ hotels }: { hotels: HotelJson }) {
                         />
                     </div>
                     <button
-                        className="w-full py-3 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors mt-1"
+                        className="w-full py-3 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors mt-1 disabled:opacity-60 disabled:cursor-not-allowed"
                         onClick={makeBooking}
+                        disabled={loading}
                     >
-                        ยืนยันการจอง
+                        {loading ? 'กำลังจอง...' : 'ยืนยันการจอง'}
                     </button>
                 </div>
             </div>
