@@ -50,11 +50,10 @@ export default function Home() {
                 <p className="text-gray-500 mb-7 text-sm">
                     ค้นพบโรงแรมที่ใช่สำหรับทุกการเดินทาง
                 </p>
-                <Link
-                    href="/hotel"
-                    className="inline-block px-8 py-3 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors text-sm"
-                >
-                    ดูโรงแรมทั้งหมด
+                <Link href="/hotel">
+                    <div className="inline-block px-8 py-3 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors text-sm">
+                        ดูโรงแรมทั้งหมด
+                    </div>
                 </Link>
             </section>
         </main>
