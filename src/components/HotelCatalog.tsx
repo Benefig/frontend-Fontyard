@@ -15,6 +15,7 @@ export default async function HotelCatalog({ hotelsJson }: { hotelsJson: Promise
                             imgSrc={hotelItem.picture}
                             province={hotelItem.province}
                             dailyrate={hotelItem.dailyrate}
+                            ratings={hotelItem.ratings}
                         />
                     </Link>
                 ))}
