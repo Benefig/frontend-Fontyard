@@ -11,7 +11,15 @@ export default async function MyBookingPage() {
     if (!session) redirect('/api/auth/signin');
 
     const bookings = await getBookings(session.user.token).catch(() => ({ success: false, count: 0, data: [] } as ApiBookingJson));
-    const myBookings = bookings.data.filter((b) => b.hotel?.name);
+    // For admin, backend returns ALL bookings — filter to only show the admin's own bookings
+    const myBookings = bookings.data.filter((b) => {
+        if (!b.hotel?.name) return false;
+        if (session.user.role === 'admin') {
+            const userId = typeof b.user === 'object' ? b.user?._id : b.user;
+            return userId === session.user._id;
+        }
+        return true;
+    });
 
     if (myBookings.length === 0) {
         return (
