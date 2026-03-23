@@ -1,6 +1,6 @@
 'use client'
 
-import { useSession, signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import styles from './topmenu.module.css';
 
@@ -57,12 +57,9 @@ export default function TopMenuAuth() {
                         <Link href="/auth/signout" className={styles.dropdownItem}>ออกจากระบบ</Link>
                     </div>
                 </div>
-                <button
-                    onClick={() => signOut({ callbackUrl: '/' })}
-                    className={styles.logoutBtn}
-                >
+                <Link href="/auth/signout" className={styles.logoutBtn}>
                     ออกจากระบบ
-                </button>
+                </Link>
             </div>
         </>
     );
