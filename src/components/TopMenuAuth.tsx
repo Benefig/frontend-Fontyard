@@ -38,8 +38,11 @@ export default function TopMenuAuth() {
             <div className={styles.navLinks}>
                 <Link href="/hotel" className={styles.navLink}>รายชื่อโรงแรม</Link>
                 <Link href="/mybooking" className={styles.navLink}>การจองของฉัน</Link>
-                {isAdmin && (
-                    <Link href="/admin/hotels" className={styles.navLink}>การจัดการ</Link>
+                {session?.user.role === 'PomPhet' && (
+                    <Link href="/admin/users" className={styles.navLink}>การจัดการ</Link>
+                )}
+                {session?.user.role === 'admin' && (
+                    <Link href="/admin/dashboard" className={styles.navLink}>การจัดการ</Link>
                 )}
             </div>
             <div className={styles.authSection}>
