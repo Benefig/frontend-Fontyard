@@ -39,7 +39,7 @@ export default function TopMenuAuth() {
                 <Link href="/hotel" className={styles.navLink}>รายชื่อโรงแรม</Link>
                 <Link href="/mybooking" className={styles.navLink}>การจองของฉัน</Link>
                 {isAdmin && (
-                    <Link href="/admin/bookings" className={styles.navLink}>การจัดการ</Link>
+                    <Link href="/admin/hotels" className={styles.navLink}>การจัดการ</Link>
                 )}
             </div>
             <div className={styles.authSection}>
