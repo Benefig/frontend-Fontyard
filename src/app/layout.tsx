@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Sarabun } from "next/font/google";
 import "./globals.css";
 import TopMenu from "@/components/TopMenu";
-import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/authOptions";
 import NextAuthProvider from "@/providers/NextAuthProvider";
 import ReduxProvider from "@/redux/ReduxProvider";
 
@@ -24,17 +22,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-  const session = await getServerSession(authOptions);
-
   return (
     <html lang="th">
       <body className={sarabun.variable}>
         <ReduxProvider>
-          <NextAuthProvider session={session}>
+          <NextAuthProvider>
             <TopMenu/>
             {children}
-          </NextAuthProvider> 
+          </NextAuthProvider>
         </ReduxProvider>
       </body>
     </html>
