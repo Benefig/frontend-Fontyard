@@ -16,15 +16,21 @@ export default async function AdminLayout({ children }: { children: React.ReactN
                     <p className="text-sm font-medium text-gray-700 mt-0.5 truncate">{session.user.name}</p>
                 </div>
                 <nav className="flex-1 p-3 flex flex-col gap-0.5">
-                    <Link href="/admin/dashboard" className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition-colors">
-                        📊 Dashboard
-                    </Link>
-                    <Link href="/admin/hotels" className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition-colors">
-                        🏨 จัดการโรงแรม
-                    </Link>
-                    <Link href="/admin/bookings" className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition-colors">
-                        📅 จัดการการจอง
-                    </Link>
+                    {session.user.role === 'admin' && (
+                        <Link href="/admin/dashboard" className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition-colors">
+                            📊 Dashboard
+                        </Link>
+                    )}
+                    {session.user.role === 'admin' && (
+                        <Link href="/admin/bookings" className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition-colors">
+                            📅 จัดการการจอง
+                        </Link>
+                    )}
+                    {(session.user.role === 'PomPhet' || session.user.role === 'admin') && (
+                        <Link href="/admin/hotels" className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition-colors">
+                            🏨 จัดการโรงแรม
+                        </Link>
+                    )}
                     {session.user.role === 'PomPhet' && (
                         <Link href="/admin/users" className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition-colors">
                             👥 จัดการผู้ใช้
