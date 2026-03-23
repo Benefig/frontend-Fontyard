@@ -6,8 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { createHotelAction } from "../actions";
 
-const regions = ['ภาคเหนือ', 'ภาคกลาง', 'ภาคใต้', 'ภาคตะวันออกเฉียงเหนือ', 'ภาคตะวันออก', 'ภาคตะวันตก'];
-
 const fields = [
     { key: 'name', label: 'ชื่อโรงแรม' },
     { key: 'address', label: 'ที่อยู่' },
@@ -68,16 +66,14 @@ export default function NewHotelPage() {
                 ))}
 
                 <div className="flex flex-col gap-1">
-                    <label className="text-sm font-medium text-gray-700">ภูมิภาค</label>
-                    <select
-                        required
+                    <label className="text-sm font-medium text-gray-700">Region</label>
+                    <input
+                        type="text"
                         value={form.region}
                         onChange={(e) => set('region', e.target.value)}
-                        className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-600"
-                    >
-                        <option value="">เลือกภูมิภาค</option>
-                        {regions.map((r) => <option key={r} value={r}>{r}</option>)}
-                    </select>
+                        placeholder="e.g. Central, ภาคเหนือ"
+                        className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
+                    />
                 </div>
 
                 {form.picture && (
