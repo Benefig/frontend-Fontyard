@@ -19,9 +19,6 @@ export default async function AdminUsersPage() {
         <div>
             <div className="flex items-center justify-between mb-6">
                 <h1 className="text-2xl font-bold text-gray-800">จัดการผู้ใช้</h1>
-                <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                    {users.count} คน
-                </span>
             </div>
             {!isPomPhet && (
                 <div className="mb-4 px-4 py-3 bg-green-50 border border-green-200 rounded-lg text-green-800 text-sm">
