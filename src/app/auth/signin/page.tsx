@@ -28,7 +28,10 @@ export default function SigninPage() {
         setLoading(false);
 
         if (result?.error) {
-            setError("อีเมลหรือรหัสผ่านไม่ถูกต้อง");
+            setError(result.error.toLowerCase().includes("ban")
+                ? "บัญชีของคุณถูกระงับการใช้งาน กรุณาติดต่อผู้ดูแลระบบ"
+                : "อีเมลหรือรหัสผ่านไม่ถูกต้อง"
+            );
         } else {
             router.push("/hotel");
         }
