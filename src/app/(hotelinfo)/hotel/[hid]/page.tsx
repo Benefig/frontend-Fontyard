@@ -27,17 +27,34 @@ export default async function HotelDetailPage({ params }: { params: Promise<{ hi
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="flex flex-col gap-3">
-                    <div className="text-gray-600">
-                        📍 {hotel.address}, {hotel.district}, {hotel.province} {hotel.postalcode}
+                    <div className="grid grid-cols-[120px_1fr] gap-x-3 gap-y-2 text-sm">
+                        <span className="text-gray-400 font-medium">ที่อยู่</span>
+                        <span className="text-gray-700">{hotel.address}</span>
+
+                        <span className="text-gray-400 font-medium">อำเภอ/เขต</span>
+                        <span className="text-gray-700">{hotel.district}</span>
+
+                        <span className="text-gray-400 font-medium">จังหวัด</span>
+                        <span className="text-gray-700">{hotel.province}</span>
+
+                        <span className="text-gray-400 font-medium">รหัสไปรษณีย์</span>
+                        <span className="text-gray-700">{hotel.postalcode}</span>
+
+                        {hotel.region && (
+                            <>
+                                <span className="text-gray-400 font-medium">Region</span>
+                                <span className="text-gray-700">{hotel.region}</span>
+                            </>
+                        )}
+
+                        <span className="text-gray-400 font-medium">เบอร์โทรศัพท์</span>
+                        <span className="text-gray-700">
+                            <a href={`tel:${hotel.tel}`} className="hover:underline">{hotel.tel}</a>
+                        </span>
                     </div>
-                    {hotel.region && (
-                        <div className="text-gray-600">🌏 {hotel.region}</div>
-                    )}
-                    <div className="text-gray-600">
-                        📞 <a href={`tel:${hotel.tel}`} className="hover:underline">{hotel.tel}</a>
-                    </div>
+
                     <div className="text-2xl font-bold text-amber-500 mt-2">
-                        ฿{hotel.dailyrate.toLocaleString()}
+                        ฿{hotel.dailyrate?.toLocaleString() ?? 'N/A'}
                         <span className="text-base font-normal text-gray-400 ml-1">/ คืน</span>
                     </div>
                 </div>

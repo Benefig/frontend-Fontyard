@@ -6,7 +6,7 @@ import { toggleBanAction, deleteUserAction } from "./actions";
 const roleLabel: Record<string, string> = {
     user: 'ผู้ใช้',
     admin: 'แอดมิน',
-    PomPhet: 'Super Admin',
+    PomPhet: 'PomPhet',
 };
 
 const roleBadgeColor: Record<string, string> = {
