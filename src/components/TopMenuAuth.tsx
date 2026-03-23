@@ -47,7 +47,7 @@ export default function TopMenuAuth() {
                     <div className={styles.userBtn}>
                         <div className={styles.userInfo}>
                             <span className={styles.userName}>{session.user.name}</span>
-                            <span className={styles.userRole}>{isAdmin ? 'แอดมิน' : 'ผู้ใช้'}</span>
+                            <span className={styles.userRole}>{session.user.role === 'PomPhet' ? 'PomPhet' : isAdmin ? 'แอดมิน' : 'ผู้ใช้'}</span>
                         </div>
                         <span style={{ fontSize: 11 }}>▾</span>
                     </div>

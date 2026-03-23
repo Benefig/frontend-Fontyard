@@ -2,6 +2,7 @@
 
 # dependencies
 /figma-plugin
+hotel-booking.postman_collection.json
 /node_modules
 /.pnp
 .pnp.*

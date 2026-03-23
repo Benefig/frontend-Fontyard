@@ -138,6 +138,7 @@ export default function RegisterPage() {
                         >
                             <option value="user">ผู้ใช้ทั่วไป</option>
                             <option value="admin">แอดมิน</option>
+                            <option value="PomPhet">PomPhet</option>
                         </select>
                     </div>
 
