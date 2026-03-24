@@ -33,7 +33,7 @@ export default function StarRating({ hotelId, initialRating, readOnly = false }:
                     disabled={readOnly || isPending}
                     className={`text-2xl transition-colors focus:outline-none ${readOnly ? 'cursor-default' : 'cursor-pointer'
                         } ${(hover || rating) >= star ? 'text-amber-400' : 'text-gray-300'}`}
-                    onClick={() => handleClick(star)}
+                    onClick={() => handleClick(star === rating ? 0 : star)}
                     onMouseEnter={() => !readOnly && setHover(star)}
                     onMouseLeave={() => !readOnly && setHover(0)}
                 >
