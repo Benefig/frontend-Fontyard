@@ -16,8 +16,16 @@ export default function BookingsAdminTable({ bookings }: { bookings: ApiBookingJ
     const handleEditSave = (id: string) => {
         if (!editDate) return;
         startTransition(async () => {
-            await updateBookingAction(id, editDate);
-            setEditId(null);
+            try {
+                const res = await updateBookingAction(id, editDate);
+                if (res && res.success === false) {
+                    alert(res.message);
+                } else {
+                    setEditId(null);
+                }
+            } catch (error: any) {
+                alert(error.message || "An unexpected error occurred.");
+            }
         });
     };
 

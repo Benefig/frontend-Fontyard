@@ -19,7 +19,7 @@ export async function deleteBookingAction(id: string) {
 
 export async function updateBookingAction(id: string, apptDate: string) {
     const session = await getServerSession(authOptions);
-    if (!session) throw new Error('Unauthorized');
+    if (!session) return { success: false, message: 'Unauthorized' };
 
     const res = await fetch(`${process.env.BACKEND_URL}/api/v1/bookings/${id}`, {
         method: 'PUT',
@@ -30,6 +30,10 @@ export async function updateBookingAction(id: string, apptDate: string) {
         body: JSON.stringify({ apptDate }),
     });
 
-    if (!res.ok) throw new Error('Failed to update booking');
+    if (!res.ok) {
+        const errorData = await res.json().catch(() => null);
+        return { success: false, message: errorData?.message || 'Failed to update booking' };
+    }
     revalidatePath('/admin/bookings');
+    return { success: true };
 }
