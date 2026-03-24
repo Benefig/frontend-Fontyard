@@ -27,7 +27,7 @@ export default function BookingClient({ hotels }: { hotels: HotelJson }) {
         setError("");
         setLoading(true);
         try {
-            await createBooking(bookLocation, bookDate.toISOString());
+            await createBooking(bookLocation, bookDate.format('YYYY-MM-DD'));
             setBooked(true);
         } catch (err: any) {
             const msg: string = err.message ?? '';

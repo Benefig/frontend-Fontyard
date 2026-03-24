@@ -53,7 +53,7 @@ export default function HotelBookingPanel({ hotelId, hotelName }: { hotelId: str
         setError('');
         setLoading(true);
         try {
-            await createBooking(hotelId, date.toISOString());
+            await createBooking(hotelId, date.format('YYYY-MM-DD'));
             setDone(true);
         } catch (err: any) {
             const msg: string = err.message ?? '';
